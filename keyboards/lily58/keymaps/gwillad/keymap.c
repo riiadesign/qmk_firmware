@@ -121,7 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case CMDER:
         if (record->event.pressed) {
-            SEND_STRING(SS_LSFT(SS_RSFT("`")));
+            SEND_STRING(SS_LCTL(SS_LALT(SS_LSFT("`"))));
         }
         break;
     case YAHARA:
@@ -136,7 +136,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case YEMAIL:
         if (record->event.pressed) {
-            SEND_STRING("agwilliam@yaharasoftware");
+            SEND_STRING("agwilliam@yaharasoftware.com");
         }
         break;
     case GMAIL:
