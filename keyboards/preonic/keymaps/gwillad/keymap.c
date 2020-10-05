@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Caps |Brite | GUI  | Alt  |Lower | Spc  | Ent  |Raise | Alt  | Ctrl |  M1  | DEL  |
+ * | Caps |LAUNCH| GUI  | Alt  |  Lower Spc  |  Ent Raise  | Alt  | Ctrl | CMDER| DEL  |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
@@ -74,13 +74,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
         case LAUNCHY:
-          if (record->event.pressed) {
-            SEND_STRING(SS_LCTRL(SS_LALT(" ")));
-          }
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTRL(SS_LSFT(" ")));
+            }
+            break;
         case CMDER:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTRL(SS_LALT(SS_LSFT("`"))));
+                SEND_STRING(SS_LSFT(SS_RSFT("`")));
             }
+            break;
         }
     return true;
 };
