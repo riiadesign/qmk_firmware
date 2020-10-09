@@ -121,7 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case CMDER:
         if (record->event.pressed) {
-            SEND_STRING(SS_LCTL(SS_LALT(SS_LSFT("`"))));
+            SEND_STRING(SS_LSFT(SS_RSFT("`")));
         }
         break;
     case YAHARA:
