@@ -1,6 +1,6 @@
 // ObliviousGmn // Dokuu // October 2020 // Big Brain
 
-static long int oled_timeout = 1*10*1000; // 10 seconds
+static long int oled_timeout = 240000;
 
 #include "bongo.c"
 
@@ -28,7 +28,7 @@ void matrix_init_user(void) {
 // Oled Rotations
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (is_keyboard_left()) {
+  if (is_keyboard_master()) {
     return OLED_ROTATION_270;
   }
     else {
